@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Characters component renders characters from an array or characters 1`] = `
+<Fragment>
+  <Character
+    image="sample-image"
+    key="rickalive"
+    name="rick"
+    species="human"
+    status="alive"
+  />
+</Fragment>
+`;
