@@ -26,36 +26,30 @@ export default class AllCharacters extends Component{
 
   componentDidMount(){
     this.updatePage();
-    // this.setState({ loading:true });
-    // fetchCharacters()
-    //   .then(characters=>{
-    //     console.log('characters', characters);
-    //     this.setState({ charactersArray:characters.results });
-    //   })
-    //   .then(()=>{
-    //     this.setState({ loading:false });
-    //   });
   }
   componentDidUpdate(prevProps, prevState) {
     if(prevState.count  !== this.state.page) {  
       console.log('update page with new page');
       //this.updatePage();
+      //may cuase infinite loop????
     }
   }
 
   incrementPage = (test)=>{
     console.log(test);
-    let page = this.state.page;
-    if(page >= 20) return;
-    page++;
-    this.setState({ page: page }); 
+   
+    if(this.state.page >= 20) return;
+   
+    this.setState(state=>{
+      return { page: state.page++ };
+    }); 
   }
 
   decrementPage = ()=>{
-    let page = this.state.page;
-    if(page <= 1) return;
-    page--;
-    this.setState({ page: page });
+    if(this.state.page <= 1) return;
+    this.setState((state)=>{
+      return { page: state.page++ };
+    });
   }
   
 
