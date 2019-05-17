@@ -28,27 +28,25 @@ export default class AllCharacters extends Component{
     this.updatePage();
   }
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.count  !== this.state.page) {  
-      console.log('update page with new page');
-      //this.updatePage();
-      //may cuase infinite loop????
+    console.log(prevState.page, this.state.page);
+    if(prevState.page  !== this.state.page) {  
+      this.updatePage();
     }
   }
 
-  incrementPage = (test)=>{
-    console.log(test);
+  incrementPage = ()=>{
    
     if(this.state.page >= 20) return;
-   
-    this.setState(state=>{
-      return { page: state.page++ };
-    }); 
+    this.setState((state)=>{
+      return { page: state.page + 1 };
+    });
+     
   }
 
   decrementPage = ()=>{
     if(this.state.page <= 1) return;
     this.setState((state)=>{
-      return { page: state.page++ };
+      return { page: state.page - 1 };
     });
   }
   
