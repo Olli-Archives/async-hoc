@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Character from './Character';
 
+
 export default function Characters({ charactersArray }){
   const characters = charactersArray.map(character=>{
     const { name, status, species, image } = character;
@@ -10,6 +11,7 @@ export default function Characters({ charactersArray }){
   return (
    <>
    {characters}
+   
    </>
   );
 
